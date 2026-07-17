@@ -1,42 +1,28 @@
-# Scoop Bucket Template
+# Word Hunter Scoop Bucket
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+[![Tests](https://github.com/Ironship/scoop-wordhunter/actions/workflows/ci.yml/badge.svg)](https://github.com/Ironship/scoop-wordhunter/actions/workflows/ci.yml)
+[![Excavator](https://github.com/Ironship/scoop-wordhunter/actions/workflows/excavator.yml/badge.svg)](https://github.com/Ironship/scoop-wordhunter/actions/workflows/excavator.yml)
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+Official [Scoop](https://scoop.sh) bucket for
+[Word Hunter](https://github.com/Ironship/WordHunter), a local-first reader and
+vocabulary trainer.
 
-## How do I use this template?
+## Install
 
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Allow writing to the repository from within GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Select `Read and write permissions`.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
-
-## How do I install these manifests?
-
-After manifests have been committed and pushed, run the following:
-
-```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+```powershell
+scoop bucket add wordhunter https://github.com/Ironship/scoop-wordhunter
+scoop install wordhunter/wordhunter
 ```
 
-## How do I contribute new manifests?
+The manifest installs the official 64-bit portable ZIP from the latest stable
+GitHub Release. Its release URL and SHA-256 are checked by this repository's CI.
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+## Updates
+
+Scoop Excavator checks the upstream GitHub release tag and updates the manifest
+through its `checkver` and `autoupdate` definitions. Every change is validated
+on both Windows PowerShell and PowerShell before it is published.
+
+Issues about the application belong in the
+[Word Hunter issue tracker](https://github.com/Ironship/WordHunter/issues).
+Bucket or manifest issues can be reported in this repository.
